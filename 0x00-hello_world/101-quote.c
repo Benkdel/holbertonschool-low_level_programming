@@ -12,6 +12,6 @@ int main(void)
 
 	fwrite(err, 57, 1, stderr);
 	fwrite("-19\n", 5, 1, stderr);
-        exit(EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 	return (0);
 }
