@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 /**
  * main - Entry point
  *
@@ -11,5 +12,6 @@ int main(void)
 
 	fwrite(err, 57, 1, stderr);
 	fwrite("-19\n", 5, 1, stderr);
-	return (1);
+        exit(EXIT_FAILURE);
+	return (0);
 }
