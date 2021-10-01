@@ -10,12 +10,19 @@
  */
 int main(void)
 {
-	int x;
+	int x = 'a';
+	int y = 'A';
 
-	for (x = 'a'; x <= 'z'; x++)
+	while (x <= 'z')
+	{
 		putchar(x);
-	for (x = 'A'; x <= 'Z'; x++)
-		putchar(x);
+		x++;
+	}
+	while (y <= 'Z')
+	{
+		putchar(y);
+		y++;
+	}
 	putchar(10);
 	return (0);
 }
