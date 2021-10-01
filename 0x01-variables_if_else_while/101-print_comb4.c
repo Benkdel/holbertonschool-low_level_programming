@@ -12,31 +12,35 @@ int main(void)
 {
 	int x = '0';
 	int y = '0';
+	int z = '0';
 	int first = 1;
 
 	while (x <= '9')
 	{
 		while (y <= '9')
 		{
-			if (x < y)
+			while (z <= '9')
 			{
-				if (x == '0' && y == '0')
+
+				if (x < y && y < z)
 				{
-					/* do nothing */
-				}
-				else
-				{
-					if (first == 0)
+					if (x == '0' && y == '0' && z == '0')
+					{
+					}
+					else if (first == 0)
 					{
 						putchar(',');
 						putchar(' ');
 					}
 					first = 0;
+					putchar(x);
+					putchar(y);
+					putchar(z);
 				}
-				putchar(x);
-				putchar(y);
+				z++;
 			}
 			y++;
+			z = '0';
 		}
 		x++;
 		y = '0';
