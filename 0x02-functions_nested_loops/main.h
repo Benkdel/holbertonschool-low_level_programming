@@ -1,4 +1,4 @@
-#include "1-alphabet.c"
+/*#include "1-alphabet.c"
 #include "2-print_alphabet_x10.c"
 #include "3-islower.c"
 #include "4-isalpha.c"
@@ -9,7 +9,7 @@
 #include "9-times_table.c"
 #include "10-add.c"
 #include "11-print_to_98.c"
-
+*/
 int _putchar(char c);
 void print_alphabet();
 void print_alphabet_x10();
