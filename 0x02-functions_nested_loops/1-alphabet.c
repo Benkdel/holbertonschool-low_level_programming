@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 /**
  * print_alphabet - uses putchar and whileloop tu print alphabet in lower case
  *
