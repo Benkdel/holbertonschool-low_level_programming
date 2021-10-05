@@ -18,7 +18,6 @@ void times_table(void)
 	{
 		while (col < 10)
 		{
-			_putchar(' ');
 			n = col * row;
 			if (n < 10)
 			{
@@ -33,7 +32,10 @@ void times_table(void)
 				_putchar(units + '0');
 			}
 			if (col < 9)
+			{
 				_putchar(44);
+				_putchar(' ');
+			}
 			col++;
 		}
 		col = 0;
