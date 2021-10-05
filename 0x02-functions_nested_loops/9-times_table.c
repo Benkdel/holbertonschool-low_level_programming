@@ -19,22 +19,14 @@ void times_table(void)
 		while (col < 10)
 		{
 			n = col * row;
-			if (n < 10)
-			{
-				_putchar(n + '0');
-			}
-			else
-			{
-				units = n % 10;
-				tens = (n - units) / 10;
-				_putchar(tens + '0');
-				_putchar(units + '0');
-			}
-			if (col < 9)
-			{
-				_putchar(44);
+			units = n % 10;
+			tens = (n - units) / 10;
+			if (col > 0)
 				_putchar(' ');
-			}
+		        (tens <= 0) ? _putchar(' ') : _putchar(tens + '0');
+			_putchar(units + '0');
+			if(col < 9)
+				_putchar(44);
 			col++;
 		}
 		col = 0;
