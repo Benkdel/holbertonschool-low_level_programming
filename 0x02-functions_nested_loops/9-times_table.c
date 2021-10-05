@@ -22,10 +22,12 @@ void times_table(void)
 			units = n % 10;
 			tens = (n - units) / 10;
 			if (col > 0)
+			{
 				_putchar(' ');
-		        (tens <= 0) ? _putchar(' ') : _putchar(tens + '0');
+				(tens <= 0) ? _putchar(' ') : _putchar(tens + '0');
+			}
 			_putchar(units + '0');
-			if(col < 9)
+			if (col < 9)
 				_putchar(44);
 			col++;
 		}
