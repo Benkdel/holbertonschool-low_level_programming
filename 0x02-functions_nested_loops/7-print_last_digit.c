@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 /**
  * print_last_digit - function to return the last digit of a number
  *

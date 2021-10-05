@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 /**
  * print_sign - function to print the sign of a number
  *

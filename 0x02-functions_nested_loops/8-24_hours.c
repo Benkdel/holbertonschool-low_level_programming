@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 /**
  * jack_bauer - function to return the last digit of a numberprint jack B day
  *
