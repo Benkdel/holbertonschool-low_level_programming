@@ -11,40 +11,41 @@
 int main(void)
 {
 	int max = 1024;
-	int mult3 = 0;
-	int mult5 = 0;
-	int multBoth = 0;
+	long int mult3 = 0;
+	long int mult5 = 0;
+	long int multBoth = 0;
 	int counter = 0;
 	int i = 0;
 
-	counter = 3;
+	counter = 0;
 	i = 0;
 
-	while (counter <= max)
+	while (counter < max)
 	{
-		i++;
-		counter *= i;
 		mult3 += counter;
+		i++;
+		counter = 3 * i;
 	}
 
-	counter = 5;
+	counter = 0;
 	i = 0;
-	while (counter <= max)
+	while (counter < max)
 	{
-		i++;
-		counter *= i;
 		mult5 += counter;
-	}
-
-	counter =  3 * 5;
-	i = 0;
-	while (counter <= max)
-	{
 		i++;
-		counter *= i;
-		multBoth = counter;
+		counter = 5 * i;
 	}
 
-	printf("%d\n", mult3 + mult5 - multBoth);
+	counter =  0;
+	i = 0;
+	while (counter < max)
+	{
+		multBoth += counter;
+		i++;
+		counter  = 15 * i;
+	}
+
+	printf("%ld %ld %ld\n", mult3, mult5, multBoth);
+	printf("%ld\n", mult3 + mult5 - multBoth);
 	return (0);
 }
