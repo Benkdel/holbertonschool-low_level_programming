@@ -20,7 +20,7 @@ int main(void)
 
 	while (num1 < maxFibTerm && num2 < maxFibTerm)
 	{
-	        sumPrevTwo = num1 + num2;
+		sumPrevTwo = num1 + num2;
 		sumEven += (((sumPrevTwo % 2) == 0) ? sumPrevTwo : 0);
 		num1 = num2;
 		num2 = sumPrevTwo;
