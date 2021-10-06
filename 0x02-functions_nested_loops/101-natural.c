@@ -45,7 +45,6 @@ int main(void)
 		counter  = 15 * i;
 	}
 
-	printf("%ld %ld %ld\n", mult3, mult5, multBoth);
 	printf("%ld\n", mult3 + mult5 - multBoth);
 	return (0);
 }
