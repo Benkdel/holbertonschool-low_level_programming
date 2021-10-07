@@ -28,6 +28,7 @@ void more_numbers(void)
 			n++;
 		}
 		n = 48;
+		reset = 0;
 		l++;
 		_putchar(10);
 	}
