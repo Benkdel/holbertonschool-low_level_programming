@@ -12,7 +12,7 @@ int main(void)
 {
 	int n = 1;
 
-	while (n <= 100)
+	while (n < 100)
 	{
 		if (n % 15 == 0)
 			printf("FizzBuzz ");
@@ -24,6 +24,6 @@ int main(void)
 			printf("%d ", n);
 		n++;
 	}
-	putchar(10);
+	printf("Buzz\n");
 	return (0);
 }
