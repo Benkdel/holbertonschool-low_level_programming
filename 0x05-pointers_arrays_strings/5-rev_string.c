@@ -20,7 +20,6 @@ void rev_string(char *s)
 		length++;
 	e = length - 1;
 	length /= 2;
-	printf("%s\n", s);
 	while (length--)
 	{
 		temp = s[b];
