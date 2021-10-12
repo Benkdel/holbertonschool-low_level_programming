@@ -21,13 +21,13 @@ int isNumericChar(char x)
  */
 int _atoi(char *s)
 {
-	if (*s == '\0')
-		return (0);
-
 	int res = 0;
 	int sign = 1;
 	int i;
 	int numPart = 0;
+
+	if (s[0] == '\0')
+		return (0);
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
