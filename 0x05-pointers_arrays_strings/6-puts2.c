@@ -4,7 +4,7 @@
  * puts2 - print every other character
  *
  * @str: string to print
- * 
+ *
  *
  * Return: none - void function
  *
