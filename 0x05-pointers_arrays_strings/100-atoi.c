@@ -1,13 +1,11 @@
-
-/*
- * _atoi - gets int from string
+/**
+ * _atoi - Returns an int from a string
  *
  * @s: string containing the int
  *
  * Return: integer found in string s
  *
  */
-
 int _atoi(char *s)
 {
 	unsigned int res = 0;
