@@ -28,8 +28,8 @@ char *_strcat(char *dest, char *src)
 {
 	unsigned int totalLength;
 	unsigned int destLength;
-	int i;
-	int j = 0;
+	unsigned int i;
+	unsigned int j = 0;
 
 	destLength = _strlength(dest);
 	totalLength = destLength + _strlength(src);
