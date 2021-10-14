@@ -1,12 +1,12 @@
 /**
- * _strlength - returns length of string
+ * _strlen - returns length of string
  *
  * @s: string to be evaluated
  *
  * Return: integer of string length
  *
  */
-int _strlength(char *s)
+int _strlen(char *s)
 {
 	int len = 0;
 
@@ -27,15 +27,16 @@ int _strlength(char *s)
  */
 char *_strncat(char *dest, char *src, int n)
 {
-	int totalLength;
-	int destLength;
+	int totalLen;
+	int destLen;
 	int i;
 	int j = 0;
 
-	destLength = _strlength(dest);
-	totalLength = destLength + n;
+	destLen = _strlen(dest);
+	totalLen = destLen + n;
+	totalLen = (totalLen > destLen) ? _strlen(src) : totalLen;
 
-	for (i = destLength; i < totalLength; i++)
+	for (i = destLen; i < totalLen; i++)
 		dest[i] = src[j++];
 	return (dest);
 }
