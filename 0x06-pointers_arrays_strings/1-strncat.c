@@ -38,7 +38,7 @@ char *_strncat(char *dest, char *src, int n)
 		totalLen = destLen + n;
 		totalLen = (totalLen > destLen) ? _strlen(src) : totalLen;
 
-		for (i = destLen; i < totalLen; i++)
+		for (i = destLen; i <= totalLen; i++)
 			dest[i] = src[j++];
 	}
 	return (dest);
