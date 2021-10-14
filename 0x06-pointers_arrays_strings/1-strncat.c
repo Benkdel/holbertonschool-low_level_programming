@@ -14,7 +14,7 @@ int _strlen(char *s)
 		len++;
 	return (len);
 }
-
+#include <stdio.h>
 /**
  * *_strncat - return concatenated string
  *
@@ -27,19 +27,11 @@ int _strlen(char *s)
  */
 char *_strncat(char *dest, char *src, int n)
 {
-	int totalLen;
-	int destLen;
+	int dest_len = _strlen(dest);
 	int i;
-	int j = 0;
 
-	if (n > 0)
-	{
-		destLen = _strlen(dest);
-		totalLen = destLen + n;
-		totalLen = (totalLen > destLen) ? _strlen(src) : totalLen;
-
-		for (i = destLen; i <= totalLen; i++)
-			dest[i] = src[j++];
-	}
+	for (i = 0 ; i < n && src[i] != '\0' ; i++)
+		dest[dest_len + i] = src[i];
+	dest[dest_len + i] = '\0';
 	return (dest);
 }
