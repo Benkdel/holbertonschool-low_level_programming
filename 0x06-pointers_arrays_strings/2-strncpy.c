@@ -16,7 +16,7 @@ int _strlen(char *s)
 }
 
 /**
- * *_strncat - copy a string into another
+ * *_strncpy - copy a string into another
  *
  * @dest: string dest
  * @src: string src
