@@ -1,4 +1,3 @@
-
 /**
  * *leet - encodes using leet code
  *
@@ -23,4 +22,6 @@ char *leet(char *s)
 		}
 		i++;
 	}
+	return (s);
+	
 }
