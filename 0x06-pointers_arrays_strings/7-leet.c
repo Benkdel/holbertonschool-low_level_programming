@@ -13,7 +13,7 @@ char *leet(char *s)
 	char mapping[5][2] = {"Aa", "Ee", "Oo", "Tt", "Ll"};
 	int numbers[] = {52, 51, 48, 55, 49};
 
-	while (s[i])
+	while (*(a + i))
 	{
 		for (j = 0; j < 5; j++)
 		{
@@ -23,5 +23,4 @@ char *leet(char *s)
 		i++;
 	}
 	return (s);
-	
 }
