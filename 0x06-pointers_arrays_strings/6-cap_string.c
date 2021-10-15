@@ -7,12 +7,11 @@
  * Return: 1 if true, 0 if false
  *
  */
-
 int isCap(char c)
 {
 	if (c >= 9 && c <= 10)
 		return (1);
-	if (c >= 33 && c <= 34)
+	if (c >= 32 && c <= 34)
 		return (1);
 	if (c >= 40 && c <= 41)
 		return (1);
@@ -41,13 +40,18 @@ char *cap_string(char *s)
 		{
 			if (i == 0)
 				s[i] = s[i] - 32;
-		}
-		else
-		{
-			if (isCap(s[i - 1]) == 1)
+
+			else if (isCap(s[i - 1]) == 1)
 				s[i] = s[i] - 32;
 		}
+
 		i++;
 	}
 	return (s);
 }
+
+/*
+ * for debugging only:
+ * printf("char: %c ||  pos: %d || prev i char: %c ||
+ * isCap res: %d\n", s[i], i, s[i-1], isCap(s[i-1]));
+ */
