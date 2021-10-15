@@ -13,12 +13,12 @@ char *leet(char *s)
 	char mapping[5][2] = {"Aa", "Ee", "Oo", "Tt", "Ll"};
 	int numbers[] = {52, 51, 48, 55, 49};
 
-	while (*(a + i))
+	while (s[i])
 	{
 		for (j = 0; j < 5; j++)
 		{
-			if (*(a + i) == mapping[j][0] || *(a + i) == mapping[j][1])
-				*(a + i) = numbers[j];
+			if (s[i] == mapping[j][0] || s[i] == mapping[j][1])
+				s[i] = numbers[j];
 		}
 		i++;
 	}
