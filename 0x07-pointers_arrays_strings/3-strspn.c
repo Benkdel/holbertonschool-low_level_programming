@@ -1,24 +1,6 @@
 #include "main.h"
 
 /**
- * checkIfValid - check if c is in accept
- *
- * @c: char to be evaluated
- * @accept: string of valid chars
- *
- * Return: 1 if valid, 0 if invalid
- */
-unsigned int checkIfValid(char c, char *accept)
-{
-	while (*accept++)
-	{
-		if (c == *accept)
-			return (1);
-	}
-	return (0);
-}
-
-/**
  * _strspn - gets the length of a prefix substring
  *
  * @s: string to evaluate
@@ -29,22 +11,23 @@ unsigned int checkIfValid(char c, char *accept)
  */
 unsigned int _strspn(char *s, char *accept)
 {
-	int counter = 0;
+	int i, j, r, exit;
 
-	if (accept[0] == '\0')
-		return (0);
+	r = 0;
 
-	while (*s != '\0')
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (checkIfValid(*s, accept) == 1)
+		exit = 0;
+		for (j = 0; accept[j] != '\0'; j++)
 		{
-			counter++;
-			while (checkIfValid(*s++, accept) == 1)
-				counter++;
-
-			return (counter);
+			if (s[i] == accept[j])
+			{
+				r++;
+				exit = 0;
+			}
 		}
-		s++;
+		if (exit == 1)
+			return (r);
 	}
 
 	return (0);
