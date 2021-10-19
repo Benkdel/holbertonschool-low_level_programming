@@ -29,7 +29,7 @@ unsigned int checkIfValid(char c, char *accept)
  */
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int counter = 0;
+	int counter = 0;
 
 	if (accept[0] == '\0')
 		return (0);
