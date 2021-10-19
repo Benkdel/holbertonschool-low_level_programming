@@ -40,9 +40,8 @@ unsigned int _strspn(char *s, char *accept)
 		{
 			counter++;
 			while (checkIfValid(*s++, accept) == 1)
-			{
 				counter++;
-			}
+
 			return (counter);
 		}
 		s++;
