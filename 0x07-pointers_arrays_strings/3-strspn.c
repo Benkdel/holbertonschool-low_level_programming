@@ -31,6 +31,9 @@ unsigned int _strspn(char *s, char *accept)
 {
 	unsigned int counter = 0;
 
+	if (accept[0] == '\0')
+		return (0);
+
 	while (*s != '\0')
 	{
 		if (checkIfValid(*s, accept) == 1)
