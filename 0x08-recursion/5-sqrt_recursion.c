@@ -23,6 +23,7 @@ int _sqrt_recursion(int n)
  * _act_sqrt_rec - compute natural sqr root of a number
  *
  * @n: number to calculate the sqr root of
+ * @i: try value for sqr root
  *
  * Return: int with sqr root of n
  *
