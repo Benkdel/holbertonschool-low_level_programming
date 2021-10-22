@@ -14,6 +14,7 @@ int main(int argc, char *argv[])
 {
 	int a, i = 0, numCoins = 0;
 	int coins[5] = {25, 10, 5, 2, 1};
+	(void)argc;
 
 	if (argc != 2)
 	{
