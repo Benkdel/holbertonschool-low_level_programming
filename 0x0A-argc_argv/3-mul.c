@@ -14,6 +14,7 @@ int main(int argc, char *argv[])
 {
 	int a, b;
 	(void)argc;
+	(Void)argv;
 
 	if (argc < 2)
 	{
