@@ -16,12 +16,9 @@ bool isNumeric(char *s)
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (s[i] < 48 || s[i] > 57)
+		if (s[i] < 49 || s[i] > 57)
 		{
-			if (i == 0 && s[i] == 45)
-				continue;
-			else
-				return (false);
+			return (false);
 		}
 	}
 	return (true);
