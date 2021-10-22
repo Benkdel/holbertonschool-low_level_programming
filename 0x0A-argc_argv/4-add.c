@@ -1,5 +1,31 @@
 #include <stdio.h>
+#include <stdbool.h>
 #include <stdlib.h>
+
+/**
+ * isNumeric - checks if string  is numeric
+ *
+ * @s: string to check
+ *
+ * Return: true if is numeric, otherwise return false
+ *
+ */
+bool isNumeric(char *s)
+{
+	int i;
+
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		if (s[i] < 48 || s[i] > 57)
+		{
+			if (i == 0 && s[i] == 45)
+				continue;
+			else
+				return (false);
+		}
+	}
+	return (true);
+}
 
 /**
  * main - Entry Point
@@ -25,7 +51,7 @@ int main(int argc, char *argv[])
 
 	for (i = 1; i < argc; i++)
 	{
-		if (!(atoi(argv[i]) > 0 && atoi(argv[i]) < 10))
+		if (!isNumeric(argv[i]))
 		{
 			printf("Error\n");
 			return (1);
