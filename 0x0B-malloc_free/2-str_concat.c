@@ -29,7 +29,6 @@ char *str_concat(char *s1, char *s2)
 		i++;
 	}
 
-	printf("len1 %d || len2 %d\n", len1, len2);
 	size = len1 + len2 + 1;
 	a = malloc(size * sizeof(char));
 
