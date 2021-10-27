@@ -5,7 +5,7 @@
 /**
  * free_grid - free grid: two dimensional array
  *
- * @**grid: pointer of pointers
+ * @grid: pointer of pointers
  * @height: number of rows
  *
  * Return: none - void function
