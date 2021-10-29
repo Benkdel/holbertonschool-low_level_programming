@@ -26,9 +26,9 @@ int *array_range(int min, int max)
 		return (NULL);
 
 	i = 0;
-	while (min <= max)
+	while (i <= (max - min))
 	{
-		arr[i] = min++;
+		arr[i] = min + i;
 		i++;
 	}
 	arr[size + 1] = '\0';
