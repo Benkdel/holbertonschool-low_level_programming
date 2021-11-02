@@ -10,8 +10,6 @@
  * @age: float with dog age
  * @owner: string with owner name
  *
- * Return: none - void function
- *
  */
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
