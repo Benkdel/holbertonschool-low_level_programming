@@ -22,17 +22,18 @@ int (*get_op_func(char *s))(int, int);
  *
  * @op: The operator
  * @f: The function associated
+ * @a: number 1
+ * @b: number 2
  */
 struct op
 {
-    char *op;
-    int (*f)(int a, int b);
+	char *op;
+	int (*f)(int a, int b);
 };
 
 /**
  * typedef for struct op
  */
 typedef struct op op_t;
-
 
 #endif

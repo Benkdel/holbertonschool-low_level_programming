@@ -4,8 +4,9 @@
 #include <string.h>
 
 /**
- * getFun - function to select correct funciton to perform
+ * get_op_func - function to select correct funciton to perform
  *
+ * @s: string with operation to be performed
  *
  * Return: pointer to function to be use
  *
@@ -14,9 +15,7 @@ int (*get_op_func(char *s))(int, int)
 {
 	int i = 0, cmp = -1;
 	char *op;
-
-	op_t ops[] =
-	{
+	op_t ops[] = {
 		{"+", op_add},
 		{"-", op_sub},
 		{"*", op_mul},
@@ -25,16 +24,12 @@ int (*get_op_func(char *s))(int, int)
 		{NULL, NULL}
 	};
 
-	while (i < 6)
+	while (i < 5)
 	{
 		op = ops[i].op;
-		/*printf("comparing parameter %s with op %s  || ", s, op);
-		printf("len of parameter is: %ld, len of op is: %ld\n", strlen(s), strlen(op));
-		printf("%d\n", strcmp(s, op));*/
 		cmp = strcmp(s, op);
 		if (cmp == 0)
 		{
-			/*printf("match op function, %s == %s\n", s, op);*/
 			return (ops[i].f);
 		}
 		i++;
