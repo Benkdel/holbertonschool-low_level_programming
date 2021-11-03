@@ -13,11 +13,11 @@
  */
 int main(int argc, char** argv)
 {
-	(void)argc;
 	int num1, num2, result;
 	char *op;
 	int (*fun)(int, int);
 
+	(void)argc;
 	if (argc != 4)
 	{
 		printf("Error\n");
