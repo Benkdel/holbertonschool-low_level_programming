@@ -13,7 +13,7 @@
 int sum_them_all(const unsigned int n, ...)
 {
 	va_list lst;
-	int i, arg, result = 0;
+	unsigned int i, arg, result = 0;
 
 	if (n == 0)
 		return (0);
