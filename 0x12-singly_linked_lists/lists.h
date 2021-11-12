@@ -3,6 +3,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
 
 /**
  * struct list_s - singly linked list
@@ -21,7 +23,8 @@ typedef struct list_s
 
 
 /* prototypes */
-
 size_t print_list(const list_t *h);
+size_t list_len(const list_t *h);
+void _putchar(char c);
 
 #endif
