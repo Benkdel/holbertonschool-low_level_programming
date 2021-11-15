@@ -12,6 +12,7 @@ int main(int argc, char **argv)
 {
 	listint_t *head;
 	listint_t *new;
+	listint_t *node;
 	listint_t hello = {8, NULL};
 	size_t n;
 	int n2;
@@ -21,6 +22,7 @@ int main(int argc, char **argv)
 	(void)argv;
 	(void)head;
 	(void)new;
+	(void)node;
 	(void)hello;
 	(void)n;
 	(void)n2;
@@ -150,6 +152,23 @@ int main(int argc, char **argv)
 		printf("%p\n", (void *)head);
 		break;
 
+	case 7:
+		head = NULL;
+		add_nodeint_end(&head, 0);
+		add_nodeint_end(&head, 1);
+		add_nodeint_end(&head, 2);
+		add_nodeint_end(&head, 3);
+		add_nodeint_end(&head, 4);
+		add_nodeint_end(&head, 98);
+		add_nodeint_end(&head, 402);
+		add_nodeint_end(&head, 1024);
+		print_listint(head);
+		node = get_nodeint_at_index(head, 5);
+		printf("%d\n", node->n);
+		print_listint(head);
+		free_listint2(&head);
+		break;
+		
 	default:
 		break;
 	}
