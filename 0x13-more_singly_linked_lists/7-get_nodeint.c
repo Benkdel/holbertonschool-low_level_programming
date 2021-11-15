@@ -6,7 +6,7 @@
  * @head: pointer to head of linked list
  * @index: index of node to retrieve
  *
- * Return: adress of node at index 
+ * Return: adress of node at index
  *
  */
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)

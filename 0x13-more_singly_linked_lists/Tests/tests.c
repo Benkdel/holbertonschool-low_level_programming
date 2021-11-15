@@ -15,8 +15,7 @@ int main(int argc, char **argv)
 	listint_t *node;
 	listint_t hello = {8, NULL};
 	size_t n;
-	int n2;
-	int task_num = 0;
+	int n2, sum, task_num = 0;
 
 	(void)argc;
 	(void)argv;
@@ -26,6 +25,7 @@ int main(int argc, char **argv)
 	(void)hello;
 	(void)n;
 	(void)n2;
+	(void)sum;
 
 	if (argc > 2)
 	{
@@ -168,7 +168,22 @@ int main(int argc, char **argv)
 		print_listint(head);
 		free_listint2(&head);
 		break;
-		
+
+	case 8:
+		head = NULL;
+		add_nodeint_end(&head, 0);
+		add_nodeint_end(&head, 1);
+		add_nodeint_end(&head, 2);
+		add_nodeint_end(&head, 3);
+		add_nodeint_end(&head, 4);
+		add_nodeint_end(&head, 98);
+		add_nodeint_end(&head, 402);
+		add_nodeint_end(&head, 1024);
+		sum = sum_listint(head);
+		printf("sum = %d\n", sum);
+		free_listint2(&head);
+		break;
+
 	default:
 		break;
 	}
