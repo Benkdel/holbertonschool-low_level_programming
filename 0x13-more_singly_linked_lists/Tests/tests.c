@@ -35,6 +35,7 @@ int main(int argc, char **argv)
 	switch (task_num)
 	{
 	case 0:
+		printf("Case called: %d\n", task_num);
 		head = &hello;
 		new = malloc(sizeof(listint_t));
 		if (new == NULL)
@@ -51,6 +52,7 @@ int main(int argc, char **argv)
 		break;
 
 	case 1:
+		printf("Case called: %d\n", task_num);
 		head = &hello;
 		new = malloc(sizeof(listint_t));
 		if (new == NULL)
@@ -67,6 +69,7 @@ int main(int argc, char **argv)
 		break;
 
 	case 2:
+		printf("Case called: %d\n", task_num);
 		head = NULL;
 		add_nodeint(&head, 0);
 		add_nodeint(&head, 1);
@@ -80,6 +83,7 @@ int main(int argc, char **argv)
 		break;
 
 	case 3:
+		printf("Case called: %d\n", task_num);
 		head = NULL;
 		add_nodeint_end(&head, 0);
 		add_nodeint_end(&head, 1);
@@ -90,6 +94,22 @@ int main(int argc, char **argv)
 		add_nodeint_end(&head, 402);
 		add_nodeint_end(&head, 1024);
 		print_listint(head);
+		break;
+
+	case 4:
+		printf("Case called: %d\n", task_num);
+		head = NULL;
+		add_nodeint_end(&head, 0);
+		add_nodeint_end(&head, 1);
+		add_nodeint_end(&head, 2);
+		add_nodeint_end(&head, 3);
+		add_nodeint_end(&head, 4);
+		add_nodeint_end(&head, 98);
+		add_nodeint_end(&head, 402);
+		add_nodeint_end(&head, 1024);
+		print_listint(head);
+		free_listint(head);
+		head = NULL;
 		break;
 
 	default:

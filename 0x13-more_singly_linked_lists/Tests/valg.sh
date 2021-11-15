@@ -1,2 +1,5 @@
 #!/bin/bash
-valgrind --leak-check=full -s --track-origins=yes ./a.out
+
+task=$1
+
+valgrind --leak-check=full -s --track-origins=yes ./a.out $task
