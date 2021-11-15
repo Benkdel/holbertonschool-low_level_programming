@@ -56,34 +56,41 @@
 > 8. int sum_listint(listint_t *head)
 > 9. listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 > 10. int delete_nodeint_at_index(listint_t **head, unsigned int index)
-##### ADvanced
+
+##### Advanced:
 
 #### Contributors:
 > * Carlon Bentin
 
-# Learning Objectives
+# Learning Objectives:
 
 > * How to use linked lists
 > * Start to look for the right source of information without too much help
 
 # Functions Implemented:
 
-|             File Name                  |   Description    				   | 
-|----------------------------------------|-------------------------------------------------|
-| 0-print_listint.c                      | Prints all the elements of a listint_t list     |
-| 1-listint_len.c	                 | Returns number of elements in the list	   |
-| 2-add_nodeint.c			 | Adds a new node at the beginning of the list    |
+|             File Name                  |   Description    				   	| 
+|----------------------------------------|------------------------------------------------------|
+| 0-print_listint.c                      | Prints all the elements of a listint_t list     	|
+| 1-listint_len.c	                 | Returns number of elements in the list	   	|
+| 2-add_nodeint.c			 | Adds a new node at the beginning of the list    	|
+| 3-add_nodeint_end.c			 | Adds a new node at the end of the list    	   	|
+| 4-free_listint.c			 | Frees memory of linked list              	   	|
+| 5-free_listint2.c			 | Sames as 4 but handles HEAD == NULL             	|
+| 6-pop_listint.c			 | Pops first node and returns its value           	|
+| 7-get_nodeint.c			 | Gets node at index                              	|
+| 8-sum_listint.c			 | Calculates the sum of all n values of linked list    |
 
 
 
-# General Considerations
+# General Considerations:
 > * Compiled with: gcc -Wall -Werror -Wextra -pedantic -std=gnu89
 > * Code compliant with Betty style and betty doc
 > * Global Variables Not Allowed
 > * Maximum of 5 functions per file
 > * C libraries allowed: malloc, free and exit.
 
-# Contact Information
+# Contact Information:
 
 <p align="center">
 Carlos Bentin -
