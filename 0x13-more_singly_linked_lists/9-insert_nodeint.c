@@ -6,7 +6,8 @@
  * @head: array of nodes
  * @idx: index of list where new node should be added
  * @n: value to add 
- * Return: describe
+ * 
+ * Return: address of new node
  *
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
