@@ -14,6 +14,7 @@ int main(int argc, char **argv)
 	listint_t *new;
 	listint_t hello = {8, NULL};
 	size_t n;
+	int n2;
 	int task_num = 0;
 
 	(void)argc;
@@ -22,6 +23,7 @@ int main(int argc, char **argv)
 	(void)new;
 	(void)hello;
 	(void)n;
+	(void)n2;
 
 	if (argc > 2)
 	{
@@ -122,6 +124,27 @@ int main(int argc, char **argv)
 		add_nodeint_end(&head, 98);
 		add_nodeint_end(&head, 402);
 		add_nodeint_end(&head, 1024);
+		print_listint(head);
+		free_listint2(&head);
+		printf("%p\n", (void *)head);
+		break;
+
+	case 6:
+		head = NULL;
+		add_nodeint_end(&head, 0);
+		add_nodeint_end(&head, 1);
+		add_nodeint_end(&head, 2);
+		add_nodeint_end(&head, 3);
+		add_nodeint_end(&head, 4);
+		add_nodeint_end(&head, 98);
+		add_nodeint_end(&head, 402);
+		add_nodeint_end(&head, 1024);
+		print_listint(head);
+		n2 = pop_listint(&head);
+		printf("- %d\n", n2);
+		print_listint(head);
+		n2 = pop_listint(&head);
+		printf("- %d\n", n2);
 		print_listint(head);
 		free_listint2(&head);
 		printf("%p\n", (void *)head);
