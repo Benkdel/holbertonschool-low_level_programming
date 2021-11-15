@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 		printf("Error::program only accepts 1 parameter");
 		return (-1);
 	}
-	
+
 	if (argc == 2)
 		task_num = atoi(argv[1]);
 
@@ -64,6 +64,19 @@ int main(int argc, char **argv)
 		n = listint_len(head);
 		printf("-> %lu elements\n", n);
 		free(new);
+		break;
+
+	case 2:
+		head = NULL;
+		add_nodeint(&head, 0);
+		add_nodeint(&head, 1);
+		add_nodeint(&head, 2);
+		add_nodeint(&head, 3);
+		add_nodeint(&head, 4);
+		add_nodeint(&head, 98);
+		add_nodeint(&head, 402);
+		add_nodeint(&head, 1024);
+		print_listint(head);
 		break;
 
 	default:
