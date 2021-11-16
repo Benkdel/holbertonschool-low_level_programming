@@ -1,6 +1,5 @@
 #include "lists.h"
 
-
 /**
  * *get_node - returns node at index
  *
@@ -58,9 +57,9 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 			newNode->next = (*head)->next;
 			*head = newNode;
 			return (newNode);
-		}	
+		}
 	}
-	
+
 	next = get_node(*head, idx);
 	prev = get_node(*head, idx - 1);
 
