@@ -19,7 +19,7 @@ listint_t *get_node2(listint_t *head, unsigned int index)
 
 	node = head;
 
-	while (head)
+	while (node)
 	{
 		if (n == index)
 			return (node);
