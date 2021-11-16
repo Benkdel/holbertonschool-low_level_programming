@@ -207,15 +207,23 @@ int main(int argc, char **argv)
 		print_listint(head);
 		printf("-----------------\n");
 		insert_nodeint_at_index(&head, 5, 4096);
+		printf("-----------------\n");
+		printf("New Length: %d\n", (int)listint_len(head));
 		print_listint(head);
 		printf("-----------------\n");
 		insert_nodeint_at_index(&head, 8, 111111111);
+		printf("-----------------\n");
+		printf("New Length: %d\n", (int)listint_len(head));
 		print_listint(head);
 		printf("-----------------\n");
 		insert_nodeint_at_index(&head, 0, 111111111);
+		printf("-----------------\n");
+		printf("New Length: %d\n", (int)listint_len(head));
 		print_listint(head);		
 		printf("-----------------\n");
 		insert_nodeint_at_index(&head, 10, 111111111);
+		printf("-----------------\n");
+		printf("New Length: %d\n", (int)listint_len(head));
 		print_listint(head);		
 		free_listint2(&head);
 		
