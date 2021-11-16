@@ -3,10 +3,7 @@
 
 /* General Includes */
 #include <stdio.h>
-
-/* Includes for Testing */
 #include <stdlib.h>
-#include <string.h>
 
 /**
  * struct listint_s - singly linked list

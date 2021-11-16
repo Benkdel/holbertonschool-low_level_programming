@@ -1,4 +1,5 @@
 #include "../lists.h"
+#include <string.h>
 
 /**
  * main - Entry Point for testing
