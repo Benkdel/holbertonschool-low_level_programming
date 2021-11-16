@@ -5,8 +5,8 @@
  *
  * @head: array of nodes
  * @idx: index of list where new node should be added
- * @n: value to add 
- * 
+ * @n: value to add
+ *
  * Return: address of new node
  *
  */
