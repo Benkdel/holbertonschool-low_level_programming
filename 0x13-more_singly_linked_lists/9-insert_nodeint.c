@@ -1,5 +1,35 @@
 #include "lists.h"
 
+
+/**
+ * *get_node - returns node at index
+ *
+ * @head: pointer to head of linked list
+ * @index: index of node to retrieve
+ *
+ * Return: adress of node at index
+ *
+ */
+listint_t *get_node(listint_t *head, unsigned int index)
+{
+	listint_t *node;
+	unsigned int n = 0;
+
+	if (head == NULL)
+		return (NULL);
+
+	node = head;
+
+	while (head)
+	{
+		if (n == index)
+			return (node);
+		n++;
+		node = node->next;
+	}
+	return (NULL);
+}
+
 /**
  * *insert_nodeint_at_index - inserts a new node at a given position
  *
@@ -19,8 +49,8 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		return (NULL);
 
 	newNode->n = n;
-	prev = get_nodeint_at_index(*head, idx - 1);
-	next = get_nodeint_at_index(*head, idx);
+	prev = get_node(*head, idx - 1);
+	next = get_node(*head, idx);
 
 	if (prev != NULL && next != NULL)
 	{
