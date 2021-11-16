@@ -196,6 +196,15 @@ int main(int argc, char **argv)
 
 	case 9:
 		head = NULL;
+		printf("Trying to insert before pop list, at 1 %d-----------------\n", 1);
+		insert_nodeint_at_index(&head, 1, 987789);
+		printf("-----------------\n");
+		print_listint(head);
+		printf("Trying to insert before pop list, at 0 %d-----------------\n", 0);
+		insert_nodeint_at_index(&head, 0, 987789);
+		printf("-----------------\n");
+		print_listint(head);
+		
 		add_nodeint_end(&head, 0);
 		add_nodeint_end(&head, 1);
 		add_nodeint_end(&head, 2);
@@ -205,23 +214,32 @@ int main(int argc, char **argv)
 		add_nodeint_end(&head, 402);
 		add_nodeint_end(&head, 1024);
 		print_listint(head);
-		printf("-----------------\n");
+		printf("Inserting %d-----------------\n", 5);
 		insert_nodeint_at_index(&head, 5, 4096);
 		printf("-----------------\n");
 		printf("New Length: %d\n", (int)listint_len(head));
 		print_listint(head);
-		printf("-----------------\n");
+		printf("Inserting %d-----------------\n", 8);
 		insert_nodeint_at_index(&head, 8, 111111111);
 		printf("-----------------\n");
 		printf("New Length: %d\n", (int)listint_len(head));
 		print_listint(head);
-		printf("-----------------\n");
+		printf("Inserting %d-----------------\n", 0);
 		insert_nodeint_at_index(&head, 0, 111111111);
 		printf("-----------------\n");
 		printf("New Length: %d\n", (int)listint_len(head));
 		print_listint(head);		
-		printf("-----------------\n");
+		printf("Inserting %d-----------------\n", 10);
 		insert_nodeint_at_index(&head, 10, 111111111);
+		printf("-----------------\n");
+		printf("New Length: %d\n", (int)listint_len(head));
+		print_listint(head);		
+		printf("Inserting %d-----------------\n", 14);
+		insert_nodeint_at_index(&head, 14, 99999999);
+		printf("-----------------\n");
+		printf("New Length: %d\n", (int)listint_len(head));
+		print_listint(head);		
+		insert_nodeint_at_index(&head, -1, 99999999);
 		printf("-----------------\n");
 		printf("New Length: %d\n", (int)listint_len(head));
 		print_listint(head);		

@@ -1,6 +1,26 @@
 #include "lists.h"
 
 /**
+ * list_len - returns number of elements
+ *
+ * @h: len_of_list
+ *
+ * Return: number of nodes in the list
+ *
+ */
+size_t list_len(const listint_t *h)
+{
+	int nodes = 0;
+
+	if (h == NULL)
+		return (0);
+
+	nodes += list_len(h->next) + 1;
+
+	return (nodes);
+}
+
+/**
  * *get_node - returns node at index
  *
  * @head: pointer to head of linked list
@@ -45,6 +65,9 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	listint_t *prev, *next;
 
 	if (newNode == NULL || head == NULL)
+		return (NULL);
+
+	if (list_len(*head) == 0 && idx > 0)
 		return (NULL);
 
 	newNode->n = n;
