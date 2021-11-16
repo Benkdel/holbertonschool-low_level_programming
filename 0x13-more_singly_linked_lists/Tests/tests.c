@@ -164,8 +164,17 @@ int main(int argc, char **argv)
 		add_nodeint_end(&head, 402);
 		add_nodeint_end(&head, 1024);
 		print_listint(head);
+		printf("-----------------\n");
+		printf("Len of linked list: %d\n", (int)listint_len(head));
+		printf("-----------------\n");
 		node = get_nodeint_at_index(head, 5);
-		printf("%d\n", node->n);
+		printf("Value got at index: %d %d\n", 5, node->n);
+		printf("-----------------\n");
+		node = get_nodeint_at_index(head, 0);
+		printf("Value got at index: %d %d\n", 0, node->n);
+		printf("-----------------\n");
+		node = get_nodeint_at_index(head, 7);
+		printf("Value got at index: %d %d\n", 8, node->n);
 		print_listint(head);
 		free_listint2(&head);
 		break;
@@ -209,7 +218,6 @@ int main(int argc, char **argv)
 		insert_nodeint_at_index(&head, 10, 111111111);
 		print_listint(head);		
 		free_listint2(&head);
-		
 		
 		break;
 
