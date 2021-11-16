@@ -65,7 +65,6 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 
 	if (prev != NULL && next != NULL)
 	{
-		printf("Inserting at index: %d\n", idx);
 		prev->next = newNode;
 		newNode->next = next;
 		return (newNode);
