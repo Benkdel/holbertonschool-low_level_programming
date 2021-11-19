@@ -8,12 +8,12 @@
  */
 int clear_bit(unsigned long int *n, unsigned int index)
 {
-	unsigned long int t_binary;
+	unsigned long int max;
 
-	t_binary = (sizeof(*(n)) * 8);
-	if (index < t_binary)
+	max = (sizeof(*(n)) * 8);
+	if (index < max)
 	{
-		*(n) = (~(1 << index) & *(n));
+		*(n) = (~(1 << max) & *(n));
 		return (1);
 	}
 	return (-1);
