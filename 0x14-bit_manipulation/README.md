@@ -68,6 +68,9 @@
 |             File Name                  |   Description    				   	| 
 |----------------------------------------|------------------------------------------------------|
 | 0-binary_to_uint.c			 | converts binary into unsigned int			|
+| 1-print_binary.c			 | prints binary using recursive and bit operators	|
+| 2-get_bit.c				 | gets bit at index   					|
+
 
 # General Considerations:
 > * Compiled with: gcc -Wall -Werror -Wextra -pedantic -std=gnu89

@@ -56,6 +56,14 @@ int main(int argc, char **argv)
 		print_binary((1 << 10) + 1);
 		printf("\n");
 		break;
+	case 2:
+		n = get_bit(1024, 10);
+		printf("%d\n", n);
+		n = get_bit(98, 1);
+		printf("%d\n", n);
+		n = get_bit(1024, 0);
+		printf("%d\n", n);
+		break;
 
 	default:
 		break;
