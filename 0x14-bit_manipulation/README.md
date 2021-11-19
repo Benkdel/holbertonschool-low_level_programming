@@ -25,9 +25,10 @@
 
 <p align="center">
     <a href="#Synopsis">Synopsis</a> •
-    <a href="#Learning Objectives">Learning Objectives</a> •
-    <a href="#General Considerations">General Considerations</a> •
-    <a href="#Contact Information">Learning Objectives</a> •
+    <a href="#Learning Objectives:">Learning Objectives</a> •
+    <a href="#General Considerations:">General Considerations</a> •
+    <a href="#How to convert from any base to any base:">How to</a> •
+    <a href="#Contact Information:">Learning Objectives</a> •
 </p>
 
 
@@ -74,6 +75,17 @@
 > * Global Variables Not Allowed
 > * Maximum of 5 functions per file
 > * C libraries allowed: malloc, free and exit.
+
+# How to convert from any base to any base:
+
+> 1. Convert from source base to decimal (base 10 ) by multiplying each digit with the base raised to the power of the digit number (starting from right digit number 0):
+
+```
+decimal = ∑(digit×basedigit number)
+```
+
+> 2. Convert from decimal to destination base: divide the decimal with the base until the quotient is 0 and calculate the remainder each time. The destination base digits are the calculated remainders.
+
 
 # Contact Information:
 
