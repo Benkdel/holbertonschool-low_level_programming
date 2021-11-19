@@ -13,6 +13,7 @@ int main(int argc, char **argv)
 {
 	unsigned int task_num = 0;
 	unsigned int n;
+	unsigned long int n2;
 
 	(void)argc;
 	(void)n;
@@ -63,6 +64,17 @@ int main(int argc, char **argv)
 		printf("%d\n", n);
 		n = get_bit(1024, 0);
 		printf("%d\n", n);
+		break;
+	case 4:
+		n2 = 1024;
+		clear_bit(&n2, 10);
+		printf("%lu\n", n2);
+		n2 = 0;
+		clear_bit(&n2, 10);
+		printf("%lu\n", n2);
+		n2 = 98;
+		clear_bit(&n2, 1);
+		printf("%lu\n", n2);
 		break;
 
 	default:
