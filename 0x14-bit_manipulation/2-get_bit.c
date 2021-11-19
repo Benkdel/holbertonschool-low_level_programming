@@ -8,20 +8,12 @@
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned int pos = 0;
+	unsigned long int max;
 
-	if (index == 0)
-		return ((n >> 1) & 1);
-
-	if (index < 64)
+	max = (sizeof(n) * 8);
+	if (index < max)
 	{
-		while (n >> 1)
-		{
-			n = n >> 1;
-			if (pos == index - 1)
-				return (n & 1);
-			pos++;
-		}
+		return (((1 << index) & n) >> index);
 	}
 	return (-1);
 }
