@@ -25,10 +25,10 @@ int close_file(int fd)
  */
 int main(int argc, char **argv)
 {
-	(void)argc;
 	int fd_src, fd_dest, res = 0;
 	char *buffer;
 
+	(void)argc;
 	if (argc != 3)
 	{
 		dprintf(2, "Usage: cp file_from file_to\n");
