@@ -100,6 +100,10 @@ int main(int argc, char **argv)
 		res = write(fd_dest, buffer, res);
 		if (res == -1)
 			exit(error_handler(res, argv[2], WRITE_ERROR));
+		fd_dest = open(argv[2], O_RDWR | O_APPEND);
+		if (fd_dest == -1)
+			exit(error_handler(fd_dest, argv[2], WRITE_ERROR));
+
 	} while (res > 0);
 
 	free(buffer);
