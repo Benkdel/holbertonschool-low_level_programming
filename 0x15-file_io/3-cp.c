@@ -22,9 +22,10 @@ int close_file(int fd)
  * @fd: file descriptor
  * @fname: file descriptor
  * @type: type of sys call
+ * @buffer: buffer to be free if exit status
  * Return: 0 on success, exit status on error
  */
-int error_handler(int fd, char *fname, int type)
+int error_handler(int fd, char *fname, int type, char *buffer)
 {
 	int status = 0;
 	(void)fd;
@@ -34,11 +35,15 @@ int error_handler(int fd, char *fname, int type)
 	case READ_ERROR:
 		dprintf(STDERR_FILENO,
 			"Error: Can't read from file %s\n", fname);
+		if (buffer != NULL)
+			free(buffer);
 		status = 98;
 		break;
 	case WRITE_ERROR:
 		dprintf(STDERR_FILENO,
 			"Error: Can't write to %s\n", fname);
+		if (buffer != NULL)
+			free(buffer);
 		status = 99;
 		break;
 	default:
@@ -85,24 +90,24 @@ int main(int argc, char **argv)
 
 	fd_src = open(argv[1], O_RDONLY);
 	if (fd_src == -1)
-		exit(error_handler(fd_src, argv[1], READ_ERROR));
+		exit(error_handler(fd_src, argv[1], READ_ERROR, NULL));
 
 	buffer = create_buffer(argv[2]);
 
 	fd_dest = open(argv[2], O_CREAT | O_TRUNC | O_RDWR, 0664);
 	if (fd_dest == -1)
-		exit(error_handler(fd_dest, argv[2], WRITE_ERROR));
+		exit(error_handler(fd_dest, argv[2], WRITE_ERROR, buffer));
 
 	do {
 		res = read(fd_src, buffer, BUFFERSIZE);
 		if (res == -1)
-			exit(error_handler(res, argv[1], READ_ERROR));
+			exit(error_handler(res, argv[1], READ_ERROR, buffer));
 		res = write(fd_dest, buffer, res);
 		if (res == -1)
-			exit(error_handler(res, argv[2], WRITE_ERROR));
+			exit(error_handler(res, argv[2], WRITE_ERROR, buffer));
 		fd_dest = open(argv[2], O_RDWR | O_APPEND);
 		if (fd_dest == -1)
-			exit(error_handler(fd_dest, argv[2], WRITE_ERROR));
+			exit(error_handler(fd_dest, argv[2], WRITE_ERROR, buffer));
 
 	} while (res > 0);
 
