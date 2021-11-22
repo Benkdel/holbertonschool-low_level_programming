@@ -8,19 +8,20 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	int count, len = 0, fd, i;
+	int count, len = 0, fd;
 
 	if (filename == NULL)
 		return (-1);
 
 	/* Open file and get file descriptor */
-	fd = open(filename, O_CREAT | 2 | O_TRUNC, 0600);
+	fd = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
 	if (fd == -1)
 		return (-1);
-
-	for (i = 0; text_content[i]; i++)
-		len++;
-
+	if (text_content != NULL)
+	{
+		while (text_content[len])
+			len++;
+	}
 	/* write into file description */
 	count = write(fd, text_content, len);
 	if (count == -1)
@@ -29,6 +30,5 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 	}
 	close(fd);
-
 	return (1);
 }
