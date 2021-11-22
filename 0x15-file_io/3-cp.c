@@ -27,6 +27,7 @@ int close_file(int fd)
 int error_handler(int fd, char *fname, int type)
 {
 	int status = 0;
+	(void)fd;
 
 	switch (type)
 	{
