@@ -11,10 +11,57 @@ int close_file(int fd)
 
 	if (status == -1)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		return (100);
 	}
 	return (status);
+}
+
+/**
+ * error_handler - returns respective exit status
+ * @fd: file descriptor
+ * @fname: file descriptor
+ * @type: type of sys call
+ * Return: 0 on success, exit status on error
+ */
+int error_handler(int fd, char *fname, int type)
+{
+	int status = 0;
+
+	switch (type)
+	{
+	case READ_ERROR:
+		dprintf(STDERR_FILENO,
+			"Error: Can't read from file %s\n", fname);
+		status = 98;
+		break;
+	case WRITE_ERROR:
+		dprintf(STDERR_FILENO,
+			"Error: Can't write to %s\n", fname);
+		status = 99;
+		break;
+	default:
+		break;
+	}
+	return (status);
+}
+
+/**
+ * create_buffer - allocates a buffer of BUFFERSIZE
+ * @fileName: file dest to print error
+ * Return: pointer to new allocated buffer
+ */
+char *create_buffer(char *fileName)
+{
+	char *buffer;
+
+	buffer = malloc(sizeof(char) * BUFFERSIZE);
+	if (buffer == NULL)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", fileName);
+		exit(99);
+	}
+	return (buffer);
 }
 
 /**
@@ -31,34 +78,30 @@ int main(int argc, char **argv)
 	(void)argc;
 	if (argc != 3)
 	{
-		dprintf(2, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
+
 	fd_src = open(argv[1], O_RDONLY);
 	if (fd_src == -1)
-	{
-		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
-	fd_dest = open(argv[2], O_CREAT | O_TRUNC | 2, 0664);
+		exit(error_handler(fd_src, argv[1], READ_ERROR));
+
+	buffer = create_buffer(argv[2]);
+
+	fd_dest = open(argv[2], O_CREAT | O_TRUNC | O_RDWR, 0664);
 	if (fd_dest == -1)
-	{
-		dprintf(2, "Error: Can't write to %s\n", argv[2]);
-		if (close_file(fd_src) == 100)
-			exit(100);
-		exit(99);
-	}
-	buffer = malloc(sizeof(char) * BUFFERSIZE);
-	if (buffer == NULL)
-	{
-		if (close_file(fd_dest) == 100 || close_file(fd_src) == 100)
-			exit(100);
-		return (-1);
-	}
+		exit(error_handler(fd_dest, argv[2], WRITE_ERROR));
+
 	do {
 		res = read(fd_src, buffer, BUFFERSIZE);
-		write(fd_dest, buffer, res);
+		if (res == -1)
+			exit(error_handler(res, argv[1], READ_ERROR));
+		res = write(fd_dest, buffer, res);
+		if (res == -1)
+			exit(error_handler(res, argv[2], WRITE_ERROR));
 	} while (res > 0);
+
 	free(buffer);
+
 	return (0);
 }
