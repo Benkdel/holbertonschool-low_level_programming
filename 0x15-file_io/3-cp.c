@@ -89,13 +89,13 @@ int main(int argc, char **argv)
 	}
 
 	fd_src = open(argv[1], O_RDONLY);
-	if (fd_src == -1)
+	if (fd_src < -1)
 		exit(error_handler(fd_src, argv[1], READ_ERROR, NULL));
 
 	buffer = create_buffer(argv[2]);
 
 	fd_dest = open(argv[2], O_CREAT | O_TRUNC | O_RDWR, 0664);
-	if (fd_dest == -1)
+	if (fd_dest < -1)
 		exit(error_handler(fd_dest, argv[2], WRITE_ERROR, buffer));
 
 	do {
@@ -110,7 +110,8 @@ int main(int argc, char **argv)
 			exit(error_handler(fd_dest, argv[2], WRITE_ERROR, buffer));
 
 	} while (res > 0);
-
+	close_file(fd_src);
+	close_file(fd_dest);
 	free(buffer);
 
 	return (0);
