@@ -3,18 +3,14 @@
 /**
  * close_file - close file and check if was succesfull
  * @fd: file descriptor
- * Return: 1 if closed correctly, 100 if error
  */
-int close_file(int fd)
+void close_file(int fd)
 {
-	int status = close(fd);
-
-	if (status == -1)
+	if (close(fd) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
-		return (100);
+		exit(100);
 	}
-	return (status);
 }
 
 /**
@@ -78,7 +74,7 @@ char *create_buffer(char *fileName)
  */
 int main(int argc, char **argv)
 {
-	int fd_src, fd_dest, res = 0;
+	int fd_src, fd_dest, res;
 	char *buffer;
 
 	(void)argc;
@@ -94,7 +90,7 @@ int main(int argc, char **argv)
 
 	buffer = create_buffer(argv[2]);
 
-	fd_dest = open(argv[2], O_CREAT | O_TRUNC | O_RDWR, 0664);
+	fd_dest = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
 	if (fd_dest < -1)
 		exit(error_handler(fd_dest, argv[2], WRITE_ERROR, buffer));
 
@@ -113,6 +109,5 @@ int main(int argc, char **argv)
 	close_file(fd_src);
 	close_file(fd_dest);
 	free(buffer);
-
 	return (0);
 }
