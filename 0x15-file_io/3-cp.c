@@ -11,28 +11,10 @@ int close_file(int fd)
 
 	if (status == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		dprintf(2, "Error: Can't close fd %d\n", fd);
 		return (100);
 	}
 	return (status);
-}
-
-/**
- * create_buffer - Allocates 1024 bytes for a buffer
- * @fd_src: The name of the file buffer is storing chars for
- * Return: A pointer to the newly-allocated buffer
- */
-char *create_buffer(char *fd_src)
-{
-	char *buffer;
-
-	buffer = malloc(sizeof(char) * BUFFERSIZE);
-	if (buffer == NULL)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", fd_src);
-		exit(99);
-	}
-	return (buffer);
 }
 
 /**
@@ -43,36 +25,40 @@ char *create_buffer(char *fd_src)
  */
 int main(int argc, char **argv)
 {
-	int fd_src, fd_dest, res = 0, w = 0;
+	(void)argc;
+	int fd_src, fd_dest, res = 0;
 	char *buffer;
 
-	(void)argc;
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		dprintf(2, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	fd_src = open(argv[1], O_RDONLY);
-	buffer = create_buffer(argv[2]);
-
+	if (fd_src == -1)
+	{
+		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+	fd_dest = open(argv[2], O_CREAT | O_TRUNC | 2, 0664);
+	if (fd_dest == -1)
+	{
+		dprintf(2, "Error: Can't write to %s\n", argv[2]);
+		if (close_file(fd_src) == 100)
+			exit(100);
+		exit(99);
+	}
+	buffer = malloc(sizeof(char) * BUFFERSIZE);
+	if (buffer == NULL)
+	{
+		if (close_file(fd_dest) == 100 || close_file(fd_src) == 100)
+			exit(100);
+		return (-1);
+	}
 	do {
-		fd_dest = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 		res = read(fd_src, buffer, BUFFERSIZE);
-		if (fd_src == -1 || res == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-			exit(98);
-		}
-		w = write(fd_dest, buffer, res);
-		if (fd_dest == -1 || w == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			exit(99);
-		}
+		write(fd_dest, buffer, res);
 	} while (res > 0);
-
 	free(buffer);
-	close_file(fd_src);
-	close_file(fd_dest);
 	return (0);
 }
