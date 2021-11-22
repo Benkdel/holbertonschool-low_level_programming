@@ -90,6 +90,7 @@ int main(int argc, char **argv)
 
 	buffer = create_buffer(argv[2]);
 
+	umask(0);
 	fd_dest = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
 	if (fd_dest < -1)
 		exit(error_handler(fd_dest, argv[2], WRITE_ERROR, buffer));
