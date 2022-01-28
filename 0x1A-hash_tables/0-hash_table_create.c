@@ -24,15 +24,9 @@ hash_table_t *hash_table_create(unsigned long int size)
 	}
 	for (iter = 0; iter < size; iter++)
 	{
-		array[iter] = malloc(sizeof(hash_node_t));
-		if (array[iter] == NULL)
-		{
-			for (iter -= 1; iter >= 0; iter--)
-				free(array[iter]);
-			free(new_table);
-			return (NULL);
-		}
+		array[iter] = NULL;
 	}
+
 	new_table->array = array;
 	return (new_table);
 }
