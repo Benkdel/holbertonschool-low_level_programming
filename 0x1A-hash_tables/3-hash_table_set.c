@@ -13,7 +13,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *head = NULL;
 	hash_node_t *node = NULL;
 
-	if (ht == NULL)
+	if (ht == NULL || key == NULL || value == NULL)
 		return (0);
 
 	index = (hash_djb2((const unsigned char *)key) % ht->size);
@@ -31,10 +31,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	}
 	else
 	{
-		head = ht->array[index];
-		node->next = head->next;
-		head = node;
-		ht->array[index] = head;
+		node->next = ht->array[index];
+		ht->array[index] = node;
 	}
 	return (1);
 }

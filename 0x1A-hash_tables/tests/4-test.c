@@ -26,7 +26,7 @@ int main(void)
 			current = ht->array[i];
 			while (current != NULL)
 			{
-				printf("Index: %lu -> key: %s -> Value: %s - ", i, current->key, current->value);
+				printf("Index: %lu -> key: %s -> Value: %s\n", i, current->key, current->value);
 				current = current->next;
 			}
 		}
