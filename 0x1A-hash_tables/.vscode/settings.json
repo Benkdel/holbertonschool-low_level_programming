@@ -9,7 +9,8 @@
     "editor.tabSize": 8,
     "editor.insertSpaces": false,
     "files.associations": {
-        "stdlib.h": "c",
-        "stat.h": "c"
-    },
+	"stdlib.h": "c",
+	"stat.h": "c",
+	"string.h": "c"
+},
 }
