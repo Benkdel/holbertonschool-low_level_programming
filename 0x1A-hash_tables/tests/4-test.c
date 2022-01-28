@@ -8,6 +8,7 @@
 int main(void)
 {
 	hash_table_t *ht;
+	hash_node_t *current = NULL;
 	unsigned long int i = 0;
 
 	ht = hash_table_create(1024);
@@ -21,7 +22,14 @@ int main(void)
 	while (i < ht->size)
 	{
 		if (ht->array[i] != NULL)
-			printf("Index: %lu -> key: %s -> Value: %s\n", i, ht->array[i]->key, ht->array[i]->value);
+		{
+			current = ht->array[i];
+			while (current != NULL)
+			{
+				printf("Index: %lu -> key: %s -> Value: %s - ", i, current->key, current->value);
+				current = current->next;
+			}
+		}
 		i++;
 	}
 	return (EXIT_SUCCESS);

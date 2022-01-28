@@ -31,8 +31,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	}
 	else
 	{
-		node->next = ht->array[index];
+		head = ht->array[index];
+		node->next = head->next;
 		head = node;
+		ht->array[index] = head;
 	}
 	return (1);
 }
