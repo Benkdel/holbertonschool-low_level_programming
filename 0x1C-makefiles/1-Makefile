@@ -1,8 +1,8 @@
 # make file with variables
 
 # VARIABLES
-CC := gcc
-SRC := $(wildcard *.c)
+CC = gcc
+SRC = $(wildcard *.c)
 
 all:
 	$(CC) $(SRC) -o school
