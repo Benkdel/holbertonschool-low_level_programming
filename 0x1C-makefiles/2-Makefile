@@ -1,0 +1,13 @@
+# first useful Makefile ?
+
+
+# Variables
+CC := gcc
+SRC := $(wildcard *.c)
+OBJ := $(SRC:%.c=%.o)
+NAME := school
+
+# RULES
+
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
