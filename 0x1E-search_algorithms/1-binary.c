@@ -39,7 +39,7 @@ int recursive_bin_search(int *array, int value, int Ub, int Lb)
 		printf("%d, ", array[i]);
 	printf("%d\n", array[i]);
 
-	range = (Ub - Lb + 1);
+	range = (Ub - Lb);
 	half += (range % 2 == 0) ? range / 2 : (range - 1) / 2;
 
 	if (value == array[half])
@@ -48,14 +48,13 @@ int recursive_bin_search(int *array, int value, int Ub, int Lb)
 		return (Ub);
 	if (value == array[Lb])
 		return (Lb);
-
 	if (Ub <= Lb)
 		return (-1);
 
 	if (value < array[half])
-		Ub = half;
+		Ub = half - 1;
 	else
-		Lb = half;
+		Lb = half + 1;
 
 	return (recursive_bin_search(array, value, Ub, Lb));
 }
