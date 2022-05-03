@@ -40,10 +40,14 @@ int recursive_bin_search(int *array, int value, int Ub, int Lb)
 	printf("%d\n", array[i]);
 
 	range = (Ub - Lb + 1);
-	half += (range % 2 == 0) ? Ub / 2 : (Ub - 1) / 2;
+	half += (range % 2 == 0) ? range / 2 : (range - 1) / 2;
 
 	if (value == array[half])
 		return (half);
+	if (value == array[Ub])
+		return (Ub);
+	if (value == array[Lb])
+		return (Lb);
 
 	if (Ub <= Lb)
 		return (-1);
