@@ -44,10 +44,6 @@ int recursive_bin_search(int *array, int value, int Ub, int Lb)
 
 	if (value == array[half])
 		return (half);
-	if (value == array[Ub])
-		return (Ub);
-	if (value == array[Lb])
-		return (Lb);
 	if (Ub <= Lb)
 		return (-1);
 
