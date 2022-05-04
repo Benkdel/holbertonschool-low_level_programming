@@ -24,15 +24,15 @@ int main(void)
 	printf("Found %d at index: %d\n\n", 1, jump_search(array, size, 1));
 	printf("Found %d at index: %d\n\n", 999, jump_search(array, size, 999));
 
-	printf("============ TESTING ARRAY2 - Only one element ============= ");
+	printf("\n============ TESTING ARRAY2 - Only one element =============\n\n");
 	printf("Found %d at index: %d\n\n", 0, jump_search(array2, size2, 0));
 	printf("Found %d at index: %d\n\n", 10, jump_search(array2, size2, 10));
 	
-	printf("============ TESTING ARRAY3 - Empty array ============= ");
+	printf("\n============ TESTING ARRAY3 - Empty array =============\n\n");
 	printf("Found %d at index: %d\n\n", 0, jump_search(array3, size3, 0));
 	printf("Found %d at index: %d\n\n", 10, jump_search(array3, size3, 10));
 
-	printf("============ TESTING ARRAY4 - Same number always ============= ");
+	printf("\n============ TESTING ARRAY4 - Same number always =============\n\n");
 	printf("Found %d at index: %d\n\n", 0, jump_search(array4, size4, 0));
 	printf("Found %d at index: %d\n\n", 5, jump_search(array4, size4, 5));
 	printf("Found %d at index: %d\n\n", 10, jump_search(array4, size4, 10));
