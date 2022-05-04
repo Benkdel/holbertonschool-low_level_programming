@@ -14,14 +14,17 @@ int jump_search(int *array, size_t size, int value)
 	int currentStep = 0;
 	int Ub = 0;
 	int Lb = 0;
+	int i;
 
 	while (array[currentStep] < value)
 	{
+		if (array[currentStep] < value && currentStep < n)
+			printf("Value checked array[%d] = [%d]\n", currentStep, array[Ub]);
+
 		currentStep += steps;
 		Lb = Ub;
 		Ub = currentStep;
-		if (array[currentStep] < value && currentStep < n)
-			printf("Value checked array[%d] = [%d]\n", currentStep, array[Ub]);
+
 		if (currentStep >= n - 1 + steps)
 			break;
 	}
