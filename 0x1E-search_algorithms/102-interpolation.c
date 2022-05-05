@@ -9,5 +9,28 @@
  */
 int interpolation_search(int *array, size_t size, int value)
 {
-	return (0);
+	size_t i, LB, UB;
+
+	if (!array || size == 0)
+		return (-1);
+
+	for (LB = 0, UB = size - 1; UB >= LB;)
+	{
+		i = LB + (((double)(UB - LB) / (array[UB] - array[LB])) * (value - array[LB]));
+		if (i < size)
+			printf("Value checked array[%ld] = [%d]\n", i, array[i]);
+		else
+		{
+			printf("Value checked array[%ld] is out of range\n", i);
+			break;
+		}
+
+		if (array[i] == value)
+			return (i);
+		if (array[i] > value)
+			UB = i - 1;
+		else
+			LB = i + 1;
+	}
+	return (-1);
 }
