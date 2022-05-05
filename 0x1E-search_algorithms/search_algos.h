@@ -16,6 +16,7 @@ int advanced_binary(int *array, size_t size, int value);
 
 /* helper prototypes */
 int recursive_bin_search(int *array, int value, int Ub, int Lb);
+int binSearch(int *array, int value, int Ub, int Lb);
 int _min(int a, int b);
-
+size_t _pow(int a, int n);
 #endif
