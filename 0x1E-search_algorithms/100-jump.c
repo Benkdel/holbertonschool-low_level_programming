@@ -23,13 +23,9 @@ int jump_search(int *array, size_t size, int value)
 		UB += steps;
 		printf("Value checked array[%d] = [%d]\n", LB, array[LB]);
 	}
-	if (n < UB)
-	{
-		LB = n - 1;
-		UB = LB + steps;
-	}
 	printf("Value found between indexes [%d] and [%d]\n", LB, UB);
 
+	printf("::LB(%d)::UB(%d)::\n", LB, UB);
 	if (n >= UB)
 	{
 		min = (n - 1 < UB) ? n - 1 : UB;
