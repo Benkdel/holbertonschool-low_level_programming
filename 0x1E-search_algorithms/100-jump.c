@@ -10,7 +10,7 @@
 int jump_search(int *array, size_t size, int value)
 {
 	int n = (int)size, steps = sqrt(n);
-	int LB = 0, UB = 0, i = 0, min = 0;
+	int LB = 0, UB = 0, i = 0;
 
 	if (!array || size == 0)
 		return (-1);
@@ -27,8 +27,7 @@ int jump_search(int *array, size_t size, int value)
 
 	if (n >= UB)
 	{
-		min = (n - 1 < UB) ? n - 1 : UB;
-		for (i = LB; i <= min; i++)
+		for (i = LB; i <= _min(n - 1, UB); i++)
 		{
 			printf("Value checked array[%d] = [%d]\n", i, array[i]);
 			if (array[i] == value)
