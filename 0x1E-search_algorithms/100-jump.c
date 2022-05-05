@@ -25,7 +25,6 @@ int jump_search(int *array, size_t size, int value)
 	}
 	printf("Value found between indexes [%d] and [%d]\n", LB, UB);
 
-	printf("::LB(%d)::UB(%d)::\n", LB, UB);
 	if (n >= UB)
 	{
 		min = (n - 1 < UB) ? n - 1 : UB;
